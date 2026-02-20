@@ -38,15 +38,6 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    public void Failure(PlayFabError playFabError)
-    {
-        Debug.Log(playFabError.GenerateErrorReport());
-    }
-
-    public void Subscribe()
-    {
-        Debug.Log("Create Account");
-    }
     public void Login()
     {
         var request = new LoginWithEmailAddressRequest
@@ -57,11 +48,42 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
         };
 
         PlayFabClientAPI.LoginWithEmailAddress
-            (
+        (
             request,
             Success,
             Failure
-            );
+        );
     }
-    
+
+    public void Subscribe()
+    {
+        PanelManager.Instance.Load(Panel.Subscribe);
+    }
+
+    public void Failure(PlayFabError playFabError)
+    {
+
+        var content = playFabError.GenerateErrorReport();
+        var lines = content.Split('\n');
+
+        switch (lines.Length)
+        {
+            case 2:
+                PanelManager.Instance.Load(Panel.Error, $"{lines[1]}");
+                break;
+            case 3:
+                PanelManager.Instance.Load(Panel.Error, $"{lines[1]} \n\n {lines[2]}");
+                break;
+            case 4:
+                PanelManager.Instance.Load(Panel.Error, $"{lines[2]} \n\n {lines[3]}");
+                break;
+            case 5:
+                PanelManager.Instance.Load(Panel.Error, $"{lines[2]} \n\n {lines[3]} \n\n {lines[4]}");
+                break;
+
+        }
+        PanelManager.Instance.Load(Panel.Error, playFabError.GenerateErrorReport());
+        Debug.Log(playFabError.GenerateErrorReport());
+    }
+
 }
