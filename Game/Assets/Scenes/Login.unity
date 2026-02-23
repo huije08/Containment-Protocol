@@ -460,7 +460,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266729979}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1905396952}
+        m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
+        m_MethodName: Login
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &266729979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,7 +1273,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1292261321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1905396952}
+        m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
+        m_MethodName: Subscribe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1292261321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,7 +1714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addressInputField: {fileID: 1589490893}
   passwordInputField: {fileID: 468259445}
-  version: 
+  version: 0.1
 --- !u!4 &1905396953
 Transform:
   m_ObjectHideFlags: 0

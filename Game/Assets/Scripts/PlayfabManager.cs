@@ -16,7 +16,9 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
     {
 
         PhotonNetwork.AutomaticallySyncScene = false;
+
         PhotonNetwork.GameVersion = version;
+
         StartCoroutine(ConnectRoutine());
     }
 
@@ -44,7 +46,6 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
         {
             Email = addressInputField.text,
             Password = passwordInputField.text
-
         };
 
         PlayFabClientAPI.LoginWithEmailAddress
@@ -82,8 +83,8 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
                 break;
 
         }
-        PanelManager.Instance.Load(Panel.Error, playFabError.GenerateErrorReport());
-        Debug.Log(playFabError.GenerateErrorReport());
+        // PanelManager.Instance.Load(Panel.Error, playFabError.GenerateErrorReport());
+        // Debug.Log(playFabError.GenerateErrorReport());
     }
 
 }
